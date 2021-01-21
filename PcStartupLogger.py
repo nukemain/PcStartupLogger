@@ -17,8 +17,8 @@ except FileExistsError:
 
 logfile = open(path_to_file,'a') #opening a file with option 'a' allows us only to append new lines, which is exactly what we want
 
-if(File_Didnt_Exist_Until_Now):# file didnt exist before so we set the count to 1 manualy
-    logfile.write("Pc turned on @ "+str(datetime.datetime.now())+" . Times this PC has been turned on since this files creation: 1 \n")
+if(File_Didnt_Exist_Until_Now): # file didnt exist before so we set the count to 1 manualy
+    logfile.write("Pc turned on @ "+str(datetime.datetime.now())+" . Times this PC has been turned on since this files creation: 1 \n") 
     logfile.close()
     sys.exit()
 else:
@@ -28,7 +28,7 @@ else:
     last_line_of_the_log = contents_of_the_log[-1] # [-1] = last line
     Last_line_split_into_table = last_line_of_the_log.split(' ') # split the line into a table containing 
     Turned_on_counter = Last_line_split_into_table[-2] #Get the value ([-1] would be \n so we need [-2])
-    New_turned_on_counter = int(Turned_on_counter) + 1
+    New_turned_on_counter = int(Turned_on_counter) + 1 #increase the counter
     logfile.close()  #we close the file because it is in the wrong operating mode ...
     logfile = open(path_to_file,'a')# ... and open it in the 'a' (append) mode
     logfile.write("Pc turned on @ "+str(datetime.datetime.now())+" . Times this PC has been turned on since this files creation: "+str(New_turned_on_counter)+" \n")
